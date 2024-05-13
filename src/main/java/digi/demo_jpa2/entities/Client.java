@@ -8,44 +8,55 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "FOURNISSEUR")
-public class Fournisseur {
-	
+@Table(name = "CLIENT")
+public class Client {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Integer id;
-	
 	@Column(name = "NOM")
-	private String raisonSociale;
-	
-	public Fournisseur() {
+	private String nom;
+	@Column(name = "PRENOM")
+	private String prenom;
+
+	public Client() {
 		super();
 	}
 
-	public Fournisseur(String raisonSociale) {
+	public Client(String nom, String prenom) {
 		super();
-		this.raisonSociale = raisonSociale;
+		this.nom = nom;
+		this.prenom = prenom;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getRaisonSociale() {
-		return raisonSociale;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setRaisonSociale(String raisonSociale) {
-		this.raisonSociale = raisonSociale;
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 	@Override
 	public String toString() {
-		return "Fournisseur [id=" + id + ", raisonSociale=" + raisonSociale + "]";
+		return "Livre [id=" + id + ", nom=" + nom + ", prenom=" + prenom + "]";
 	}
+
 }
