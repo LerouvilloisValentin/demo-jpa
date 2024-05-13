@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+	version="3.1">
+	<persistence-unit name="bibliotheque"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="jakarta.persistence.jdbc.url"
+				value="jdbc:mysql://bbefrgii0bh6rhcnwmps-mysql.services.clever-cloud.com:3306/bbefrgii0bh6rhcnwmps" />
+			<property name="jakarta.persistence.jdbc.user"
+				value="u1x0g0xahjzlykyt" />
+			<property name="jakarta.persistence.jdbc.password"
+				value="vpnM6aszpCQ3udHWSsSY" />
+
+			<property name="hibernate.show_sql" value="true" />
+			<property name=" hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
