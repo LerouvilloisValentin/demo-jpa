@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToMany;
-
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,18 +26,23 @@ public class Compte {
 	private String numero;
 	@Column(name = "SOLDE")
 	private Double solde;
+	@OneToMany(mappedBy = "compte")
+	private Set<Operation> operations;
+
 	@ManyToMany(mappedBy = "comptes")
 	private Set<Client> clients;
 
 	public Compte() {
 	}
 
-	public Compte(Integer id, String numero, Double solde) {
+	public Compte(Integer id, String numero, Double solde, Set<Operation> operations) {
 		super();
 		this.id = id;
 		this.numero = numero;
 		this.solde = solde;
-		clients = new HashSet<Client>();
+		this.operations = operations;
+		operations = new HashSet<Operation>();
+
 	}
 
 	public Integer getId() {

@@ -28,11 +28,11 @@ public class Banque {
 	public Banque() {
 	}
 	
-	public Banque(Integer id, String nom) {
+	public Banque(Integer id, String nom,Set<Client> clients) {
 		super();
 		this.id = id;
 		this.nom = nom;
-		clients = new HashSet<Client>();
+		this.clients = clients;
 	}
 
 	public Integer getId() {

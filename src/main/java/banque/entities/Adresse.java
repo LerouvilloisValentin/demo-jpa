@@ -6,7 +6,7 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class Adresse {
 	@Column(name = "NUMERO")
-	private String numero;
+	private int numero;
 	@Column(name = "RUE")
 	private String rue;
 	@Column(name = "CODE_POSTAL")
@@ -17,7 +17,7 @@ public class Adresse {
 	public Adresse() {
 	}
 
-	public Adresse(String numero, String rue, int codePostal, String ville) {
+	public Adresse(int numero, String rue, int codePostal, String ville) {
 		super();
 		this.numero = numero;
 		this.rue = rue;
@@ -25,7 +25,7 @@ public class Adresse {
 		this.ville = ville;
 	}
 
-	public String getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 
@@ -41,7 +41,7 @@ public class Adresse {
 		return ville;
 	}
 
-	public void setNumero(String numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 

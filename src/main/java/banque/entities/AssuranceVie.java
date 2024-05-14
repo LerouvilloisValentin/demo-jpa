@@ -1,6 +1,7 @@
 package banque.entities;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,8 +19,9 @@ public class AssuranceVie extends Compte {
 
 	}
 
-	public AssuranceVie(LocalDate dateFin, Double taux) {
-		super();
+	public AssuranceVie(Integer id, String numero, Double solde, Set<Operation> operations, LocalDate dateFin,
+			Double taux) {
+		super(id, numero, solde, operations);
 		this.dateFin = dateFin;
 		this.taux = taux;
 	}
@@ -44,6 +46,5 @@ public class AssuranceVie extends Compte {
 	public String toString() {
 		return "AssuranceVie [dateFin=" + dateFin + ", taux=" + taux + "]";
 	}
-	
 
 }

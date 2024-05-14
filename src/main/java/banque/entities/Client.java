@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,18 +31,20 @@ public class Client {
 	private String prenom;
 	@Column(name = "DATE_NAISSANCE")
 	private LocalDate dateNaissance;
+	@Embedded
 	private Adresse adresse;
-	
-	@ManyToMany
-	@JoinTable(name = "CLIENT_COMPTE", 
-	joinColumns = @JoinColumn(name = "ID_CLIENT"), 
-	inverseJoinColumns = @JoinColumn(name = "COMPTE_ID"))
-	private Set<Compte> comptes;
 	@ManyToOne
 	@JoinColumn(name = "ID_BANQUE")
 	private Banque banque;
+	
+	@ManyToMany
+	@JoinTable(name = "CLIENT_COMPTE_POSSESSION", 
+	joinColumns = @JoinColumn(name = "ID_CLIENT", referencedColumnName = "ID"), 
+	inverseJoinColumns = @JoinColumn(name = "COMPTE_ID",referencedColumnName = "ID"))
+	private Set<Compte> comptes;
 
 	public Client() {
+		super();
 	}
 
 	public Client(Integer id, String nom, String prenom, LocalDate dateNaissance, Banque banque) {

@@ -1,17 +1,18 @@
 package banque.entities;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 
-public class Virement extends Operation{
+public class Virement extends Operation {
 	@Column(name = "BENEFICIAIRE")
 	private String beneficiaire;
 
-
 	public Virement() {
 	}
-	
-	public Virement(String beneficiaire) {
-		super();
+
+	public Virement(Integer id, LocalDate date, Double montant, String motif, Compte compte, String beneficiaire) {
+		super(id, date, montant, motif, compte);
 		this.beneficiaire = beneficiaire;
 	}
 
@@ -27,5 +28,5 @@ public class Virement extends Operation{
 	public String toString() {
 		return "Virement [beneficiaire=" + beneficiaire + "]";
 	}
-	
+
 }
