@@ -18,4 +18,31 @@
 			<property name=" hibernate.format_sql" value="true" />
 		</properties>
 	</persistence-unit>
+	<persistence-unit name="banque">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>banque.entities.Banque</class>
+		<class>banque.entities.Client</class>
+		<class>banque.entities.Compte</class>
+		<class>banque.entities.LivretA</class>
+		<properties>
+			<!-- desactiver l'autodetection des classes de type @Entity -->
+			<property name="hibernate.archive.autodetection" value="" />
+			<!-- Activation de la génération des tables manquantes uniquement -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- Drop and create à chaque redémarrage -->
+			<property
+				name="jakarta.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+			<!-- Affichage des requêtes SQL -->
+			<property name="hibernate.show_sql" value="true" />
+			<!-- Paramètres d'accès à la BDD -->
+			<property name="jakarta.persistence.jdbc.url"
+				value="jdbc:mysql://bp2o6ybpv5cds25yrloy-mysql.services.clever-cloud.com:3306/bp2o6ybpv5cds25yrloy" />
+			<property name="jakarta.persistence.jdbc.user"
+				value="uawjt5uurkswmxv5" />
+			<property name="jakarta.persistence.jdbc.password"
+				value="srLEUuWq2bDLaKbAoZNg" />
+
+		</properties>
+	</persistence-unit>
 </persistence>

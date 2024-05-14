@@ -1,10 +1,16 @@
 package digi.demo_jpa2.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,9 +25,21 @@ public class Client {
 	private String nom;
 	@Column(name = "PRENOM")
 	private String prenom;
+	
+	@OneToMany(mappedBy = "client")
+	private Set<Emprunt> emprunts;
+
+	public Set<Emprunt> getEmprunt() {
+		return emprunts;
+	}
+
+	public void setEmprunt(Set<Emprunt> emprunts) {
+		this.emprunts = emprunts;
+	}
 
 	public Client() {
 		super();
+		emprunts= new HashSet<Emprunt>();
 	}
 
 	public Client(String nom, String prenom) {
@@ -52,6 +70,14 @@ public class Client {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public Set<Emprunt> getEmprunts() {
+		return emprunts;
+	}
+
+	public void setEmprunts(Set<Emprunt> emprunts) {
+		this.emprunts = emprunts;
 	}
 
 	@Override
